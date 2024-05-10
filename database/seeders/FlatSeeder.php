@@ -1,0 +1,298 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Flat;
+use App\Models\User;
+use App\Models\Service;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
+class FlatSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $flats = [
+            [
+                'title' => 'Appartamento elegante in zona residenziale',
+                'description' => 'Splendido appartamento completamente arredato in una zona tranquilla e ben collegata.',
+                'address' => 'Via Bocca di Leone 25, 00187 Roma',
+                'bed' => 3,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 110,
+                'latitude' => 41.9057042,
+                'longitude' =>  12.4802106,
+                'image' => 'flat_images/appartamento-elegante-in-zona-residenziale.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento moderno con terrazza panoramica',
+                'description' => 'Appartamento di design con una spaziosa terrazza da cui si gode una vista mozzafiato sulla città.',
+                'address' => 'Via Sistina 69, 00187 Roma',
+                'bed' => 2,
+                'room' => 2,
+                'bathroom' => 1,
+                'sq_m' => 90,
+                'latitude' => 41.904047,
+                'longitude' => 12.4870262,
+                'image' => 'flat_images/appartamento-con-terrazza-e-vista-sul-fiume.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento accogliente vicino al centro storico',
+                'description' => 'Accogliente appartamento situato a pochi passi dal centro storico, ideale per una coppia o una piccola famiglia.',
+                'address' => 'Via Sebastiano Veniero 8, 00192 Roma',
+                'bed' => 1,
+                'room' => 2,
+                'bathroom' => 1,
+                'sq_m' => 60,
+                'latitude' =>  41.907855,
+                'longitude' =>  12.4552845,
+                'image' => 'flat_images/appartamento-con-vista-panoramica-sulla-citta.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento luminoso con giardino privato',
+                'description' => 'Appartamento luminoso e spazioso con un bellissimo giardino privato, perfetto per chi ama la tranquillità.',
+                'address' => 'Via del Vantaggio 45, 00186 Roma',
+                'bed' => 4,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 130,
+                'latitude' => 41.9085829,
+                'longitude' => 12.4771886,
+                'image' => 'flat_images/appartamento-con-vista-sul-parco.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento di lusso nel cuore della città',
+                'description' => 'Elegante appartamento di lusso situato nel centro storico della città, con servizi di alta qualità e finiture di pregio.',
+                'address' => 'Via Gian Domenico Romagnosi 3, 00196 Roma',
+                'bed' => 2,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 100,
+                'latitude' => 41.9116618,
+                'longitude' => 12.4738449,
+                'image' => 'flat_images/appartamento-di-lusso-nel-cuore-della-citta.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con vista sul parco',
+                'description' => 'Appartamento con affaccio sul verde di un tranquillo parco cittadino, ideale per chi ama la natura e la tranquillità.',
+                'address' => 'Via Flaminia 48, 00196 Roma',
+                'bed' => 3,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 95,
+                'latitude' =>  41.925892,
+                'longitude' => 12.4700755,
+                'image' => 'flat_images/appartamento-elegante-in-zona-residenziale.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento ristrutturato con stile',
+                'description' => 'Appartamento completamente ristrutturato con stile e attenzione ai dettagli, situato in una zona ben servita e tranquilla.',
+                'address' => 'Lungotevere delle Armi 21, 00195 Roma',
+                'bed' => 2,
+                'room' => 2,
+                'bathroom' => 1,
+                'sq_m' => 75,
+                'latitude' => 41.9176976,
+                'longitude' => 12.469738,
+                'image' => 'flat_images/appartamento-luminoso-con-giardino-privato.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con terrazza e vista sul fiume',
+                'description' => 'Appartamento con una grande terrazza da cui si gode una magnifica vista sul fiume, ideale per serate estive.',
+                'address' => 'Via dei Gracchi 126, 00192 Roma',
+                'bed' => 3,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 110,
+                'latitude' => 41.9071272,
+                'longitude' => 12.4589493,
+                'image' => 'flat_images/appartamento-moderno-con-terrazza-panoramica.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento spazioso con cucina moderna',
+                'description' => 'Ampio appartamento con una cucina moderna e ben attrezzata, ideale per chi ama cucinare e ricevere ospiti.',
+                'address' => 'Via Tommaso Campanella 3, 00195 Roma',
+                'bed' => 4,
+                'room' => 2,
+                'bathroom' => 3,
+                'sq_m' => 150,
+                'latitude' => 41.8070093,
+                'longitude' => 12.6824391,
+                'image' => 'flat_images/appartamento-ristrutturato-con-stile.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con vista panoramica sulla città',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Viale delle Milizie 3, 00192 Roma',
+                'bed' => 2,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 85,
+                'latitude' => 41.9126444,
+                'longitude' => 12.4646885,
+                'image' => 'flat_images/appartamento-spazioso-con-cucina-moderna.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento contemporaneo con vista sul centro',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Via Palestro 56, 00185 Roma',
+                'bed' => 4,
+                'room' => 3,
+                'bathroom' => 1,
+                'sq_m' => 100,
+                'latitude' => 41.9046507,
+                'longitude' => 12.5047699,
+                'image' => 'flat_images/appartamento-contemporaneo-con-vista-sul-centro.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento elegante con piscina condominiale',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Viale dell\'Università 27, 00185 Roma',
+                'bed' => 2,
+                'room' => 2,
+                'bathroom' => 2,
+                'sq_m' => 70,
+                'latitude' => 41.903594,
+                'longitude' => 12.5090686,
+                'image' => 'flat_images/appartamento-elegante-con-piscina-condominiale.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento raffinato nel quartiere storico',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Via Principe Amedeo 85, 00185 Roma',
+                'bed' => 5,
+                'room' => 6,
+                'bathroom' => 3,
+                'sq_m' => 150,
+                'latitude' => 41.8981913,
+                'longitude' => 12.5012155,
+                'image' => 'flat_images/appartamento-raffinato-nel-quartiere-storico.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento luminoso con balcone panoramico',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Viale Tito Livio 28, 00136 Roma',
+                'bed' => 1,
+                'room' => 1,
+                'bathroom' => 1,
+                'sq_m' => 65,
+                'latitude' => 41.9156354,
+                'longitude' => 12.4445064,
+                'image' => 'flat_images/appartamento-luminoso-con-balcone-panoramico.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento accogliente con camino',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Via dei Laterizi, 20, 00167 Roma RM',
+                'bed' => 3,
+                'room' => 3,
+                'bathroom' => 1,
+                'sq_m' => 110,
+                'latitude' => 41.9092545,
+                'longitude' => 12.434669,
+                'image' => 'flat_images/appartamento-accogliente-con-camino.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento moderno vicino alla stazione',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Via Aurelia 208, 00165 Roma',
+                'bed' => 2,
+                'room' => 3,
+                'bathroom' => 1,
+                'sq_m' => 95,
+                'latitude' => 41.9012692,
+                'longitude' => 12.4448707,
+                'image' => 'flat_images/appartamento-moderno-vicino-alla-stazione.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con vista sulle colline',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Viale di Villa Pamphili, 00152 Roma',
+                'bed' => 1,
+                'room' => 1,
+                'bathroom' => 1,
+                'sq_m' => 55,
+                'latitude' => 41.8764243,
+                'longitude' => 12.4568677,
+                'image' => 'flat_images/appartamento-con-vista-sulle-colline.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con loft e soffitto a volta',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Viale Parioli, 00197 Roma',
+                'bed' => 5,
+                'room' => 5,
+                'bathroom' => 2,
+                'sq_m' => 130,
+                'latitude' => 41.929778,
+                'longitude' => 12.4847321,
+                'image' => 'flat_images/appartamento-con-loft-e-soffitto-a-volta.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con spaziosa veranda',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Via Antonio Baiamonti 2, 00195 Roma',
+                'bed' => 6,
+                'room' => 6,
+                'bathroom' => 3,
+                'sq_m' => 160,
+                'latitude' => 41.9147077,
+                'longitude' => 12.4598085,
+                'image' => 'flat_images/appartamento-con-spaziosa-veranda.jpg',
+                'is_visible' => true,
+            ],
+            [
+                'title' => 'Appartamento con doppio terrazzo',
+                'description' => 'Appartamento situato in una posizione privilegiata con una vista panoramica sulla città, luminoso e ben ventilato.',
+                'address' => 'Corso Vittorio Emanuele II, 00186 Roma',
+                'bed' => 3,
+                'room' => 4,
+                'bathroom' => 2,
+                'sq_m' => 110,
+                'latitude' => 41.899219,
+                'longitude' => 12.4667026,
+                'image' => 'flat_images/appartamento-con-doppio-terrazzo.jpg',
+                'is_visible' => true,
+            ],
+        ];
+
+        $user_ids = User::pluck('id')->toArray();
+
+        $services_ids = Service::pluck('id')->toArray();
+
+        foreach ($flats as $flat) {
+            $new_flat = new Flat();
+            $new_flat->fill($flat);
+            $new_flat->user_id = Arr::random($user_ids);
+            $new_flat->slug = Str::slug($flat['title']);
+            $new_flat->save();
+
+            $flat_services = array_filter($services_ids, fn () => rand(0, 1));
+            $new_flat->services()->attach($flat_services);
+        }
+    }
+}

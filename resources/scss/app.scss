@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~tomtom/web-sdk-plugin-searchbox/dist/SearchBox.css';
+@import 'index';
+@import 'not-found';
+
+body {
+    visibility: visible;
+    background-color: #F6f6f6;
+}
