@@ -27,6 +27,7 @@ class FlatController extends Controller
         $user_id = auth()->user()->id;
 
         // Creo la query
+        /*
         $query = Flat::where('title', 'LIKE', "%$search%")->whereUserId($user_id);
 
         $flats = $query->get();
@@ -39,6 +40,17 @@ class FlatController extends Controller
                 }
             }
         }
+        */
+
+        $flats = Flat::leftJoin('flat_sponsorship', 'flats.id', '=', 'flat_sponsorship.flat_id')
+            ->leftJoin('sponsorships', 'flat_sponsorship.sponsorship_id', '=', 'sponsorships.id')
+            ->where('flats.title', 'LIKE', "%$search%")
+            ->where('flats.user_id', $user_id)
+            ->select('flats.*')
+            ->selectRaw('IF(MAX(flat_sponsorship.expiration_date) >= NOW(), 1, 0) as sponsored')  // Controlla se c'è una sponsorizzazione attiva
+            ->groupBy('flats.id')  // Raggruppa per appartamento
+            ->orderByDesc('sponsored')  // Metti per primi gli appartamenti sponsorizzati
+            ->get();
         return view('admin.flats.index', compact('flats', 'search'));
     }
 
